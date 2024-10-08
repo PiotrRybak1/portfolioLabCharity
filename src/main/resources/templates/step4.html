@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{head :: head}"></head>
+<body>
+<header class="header--main-page">
+    <div th:insert="~{formTemplate :: formTemplate}"></div>
+</header>
+<section class="form--steps">
+    <div class="form--steps-instructions">
+        <div class="form--steps-container">
+            <h3>Ważne!</h3>
+            <p data-step="1" class="active">
+                Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
+                wiedzieć komu najlepiej je przekazać.
+            </p>
+            <p data-step="2">
+                Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
+                wiedzieć komu najlepiej je przekazać.
+            </p>
+            <p data-step="3">
+                Wybierz jedną, do
+                której trafi Twoja przesyłka.
+            </p>
+            <p data-step="4">Podaj adres oraz termin odbioru rzeczy.</p>
+        </div>
+    </div>
+<form th:action="@{/donation/addStep4}" th:object="${donation}" th:method="post">
+    <input type="hidden" th:field="*{quantity}">
+    <div th:each="cat,stat:${donation.getCategories()}">
+        <input type="hidden" th:field="*{categories[__${stat.index}__].id}">
+    </div>
+    <input type="hidden" th:field="*{institution}">
+    <label for="street">Ulica</label>
+    <input type="text" th:field="*{street}" id="street" required="required">
+    <label for="city">Miasto</label>
+    <input type="text" th:field="*{city}" id="city" required="required">
+    <label for="zipCode">Kod pocztowy</label>
+    <input type="text" th:field="*{zipCode}" id="zipCode" required="required">
+    <label for="phoneNumber">Numer telefonu</label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" required="required">
+    <label for="date">Data</label>
+    <input type="date" th:field="*{pickUpDate}" id="date" required="required">
+    <label for="time">Godzina odbioru</label>
+    <input type="time" th:field="*{pickUpTime}" id="time" required="required">
+    <label for="picUpComment">Uwagi dla kuriera</label>
+    <input type="text" th:field="*{pickUpComment}" id="picUpComment" required="required">
+    <a th:href="@{/donation/addStep3}">
+        <button type="button">Wstecz</button>
+    </a>
+    <button type="submit">Dalej</button>
+</form>
+</section>
+<footer th:insert="footer :: footer"></footer>
+
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+</body>
+</html>

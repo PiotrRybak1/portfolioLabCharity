@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Edit User</title>
+</head>
+<body>
+<form th:action="@{/admin/editUser}" th:object="${userToEditAdmin}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{roles}">
+    <input type="hidden" th:field="*{password}">
+    <label for="Imię i Nazwisko">Imię i Nazwisko</label>
+    <input type="text" th:field="*{username}" id="Imię i Nazwisko" required="required"/>
+    <label for="email">Email</label>
+    <input type="email" th:field="*{email}" id="email" required="required"/>
+    <label for="Czy aktywny">Imię i Nazwisko</label>
+    <input type="text" th:field="*{enable}" id="Czy aktywny" required="required"/>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

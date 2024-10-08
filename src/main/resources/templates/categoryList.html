@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Categories</title>
+</head>
+<body>
+<a th:href="@{/admin/category/add}">
+    Add Category
+</a><br>
+<a th:href="@{/admin/details}">
+    Admin home page
+</a><br>
+<div th:each="cat : ${setCategory}">
+    <label for="name">Name</label>
+    <p th:text="${cat.name}" id="name"></p>
+    <a th:href="@{/admin/category/edit/{id}(id=${cat.id})}">
+        <button type="button">Edit</button>
+    </a>
+    <a th:href="@{/admin/category/remove/{id}(id=${cat.id})}">
+        <button type="button">Delete</button>
+    </a>
+</div>
+</body>
+</html>

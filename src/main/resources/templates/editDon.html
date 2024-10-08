@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Institution</title>
+</head>
+<body>
+<form th:action="@{/admin/donation/edit}" th:object="${donationToEdit}" th:method="post">
+    <div th:each="cat,stat:${donationToEdit.getCategories()}">
+        <input type="hidden" th:field="*{categories[__${stat.index}__].id}">
+    </div>
+    <input type="hidden" th:field="*{quantity}">
+    <input type="hidden" th:field="*{institution}">
+    <input type="hidden" th:field="*{street}">
+    <input type="hidden" th:field="*{city}">
+    <input type="hidden" th:field="*{zipCode}">
+    <input type="hidden" th:field="*{phoneNumber}">
+    <input type="hidden" th:field="*{pickUpDate}">
+    <input type="hidden" th:field="*{pickUpComment}" id="picUpComment" required="required">
+    <input type="hidden" th:field="*{user}">
+    <label for="pickUpTime">Czas  podjęcia</label>
+    <input type="text" th:field="*{pickUpTime}" id ="pickUpTime">
+    <label for="isReceived">Czy odebrany</label>
+    <input type="text" th:field="*{isReceived}" id ="isReceived">
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

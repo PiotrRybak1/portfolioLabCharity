@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InstitutionForm</title>
+</head>
+<body>
+<a th:href="@{/admin/details}">
+    Admin Home Page
+</a><br>
+<form th:action="@{/admin/institution/add}" th:object="${inst}" method="post" >
+<label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description">
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

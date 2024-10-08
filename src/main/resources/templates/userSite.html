@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{head :: head}"></head>
+
+<body>
+<header class="header--main-page">
+    <nav th:insert="~{navLinks :: navLinks}"></nav>
+
+                <table>
+                    <tr>
+                        <th>Imię i Nazwisko</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr>
+                        <td th:text="${uDetails.username}"></td>
+                        <td th:text="${uDetails.email}"></td>
+                        <td>
+                            <a th:href="@{/user/edit/{id}(id=${uDetails.id})}">
+                                <button type="button">Edit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/user/edit/password/{id}(id=${uDetails.id})}">
+                                <button type="button">EditPassword</button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+</header>
+
+
+
+            <div th:each="don :${userDonationSet}">
+                <p th:text="${don.quantity}"></p>
+                <p th:each="cat:${don.categories}" th:text="${cat.name}"></p>
+                <p th:text="${don.institution.name}"></p>
+                <div>
+                    <p th:text="${don.street}"></p>
+                    <p th:text="${don.city}"></p>
+                    <p th:text="${don.zipCode}"></p>
+                    <p th:text="${don.phoneNumber}"></p>
+                </div>
+                <div>
+                    <p th:text="${don.pickUpDate}"></p>
+                    <p th:text="${don.pickUpTime}"></p>
+                    <p th:text="${don.pickUpComment}"></p>
+                    <p th:text="${don.isReceived}"></p>
+                </div>
+        </div>
+
+<footer th:insert="~{footer :: footer}"></footer>
+
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+</body>
+</html>

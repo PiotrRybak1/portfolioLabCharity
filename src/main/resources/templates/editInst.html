@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Institution</title>
+</head>
+<body>
+<form th:action="@{/admin/institution/edit}" th:object="${institutionToEdit}" method="post">
+    <label for="Nazwa">Nazwa Instytucji</label>
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{name}" id="Nazwa" required="required"/>
+    <label for="Description">Cel i  Misja</label>
+    <input type="text" th:field="*{description}" id="Description" required="required"/>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

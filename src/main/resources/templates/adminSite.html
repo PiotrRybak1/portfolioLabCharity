@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminSite</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{head :: head}"></head>
+
+<body>
+<header>
+    <nav th:insert="~{navLinks :: navLinks}"></nav>
+
+    <table>
+        <tr>
+            <th>Imię i Nazwisko</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td th:text="${aDetails.username}"></td>
+            <td th:text="${aDetails.email}"></td>
+            <td>
+                <a th:href="@{/admin/edit/{id}(id=${aDetails.id})}">
+                    <button type="button">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/admin/edit/password/{id}(id=${aDetails.id})}">
+                    <button type="button">EditPassword</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</header>
+<p th:insert="~{navAdmin :: navAdmin}"></p>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+</body>
+</html>
+
+</body>
+</html>

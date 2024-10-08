@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>donationsl</title>
+</head>
+<body>
+
+<div th:each="don :${all}">
+    <p th:text="${don.quantity}"></p>
+    <p th:each="cat:${don.categories}" th:text="${cat.name}"></p>
+    <p th:text="${don.institution.name}"></p>
+    <div>
+        <p th:text="${don.street}"></p>
+        <p th:text="${don.city}"></p>
+        <p th:text="${don.zipCode}"></p>
+        <p th:text="${don.phoneNumber}"></p>
+    </div>
+    <div>
+        <p th:text="${don.pickUpDate}"></p>
+        <p th:text="${don.pickUpTime}"></p>
+        <p th:text="${don.pickUpComment}"></p>
+        <p th:text="${don.isReceived}"></p>
+    </div>
+    <a th:href="@{/admin/donation/edit/{id}(id=${don.id})}">
+        <button type="button">Edit</button>
+    </a>
+    <a th:href="@{/admin/donation/remove/{id}(id=${don.id})}">
+        <button type="button">Delete</button>
+    </a>
+</html>

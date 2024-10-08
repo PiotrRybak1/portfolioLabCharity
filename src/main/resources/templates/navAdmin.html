@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav</title>
+</head>
+<body>
+<nav th:fragment="navAdmin">
+    <a th:href="@{/admin/institution/all}">
+         Institutions List
+    </a>||
+    <a th:href="@{/admin/institution/add}">
+         Add Institution
+    </a>||
+    <a th:href="@{/admin/all}">
+        Admins List
+    </a>||
+    <a th:href="@{/admin/add}">
+        Add Admin
+    </a>||
+    <a th:href="@{/logout}">
+        logout
+    </a>||
+    <a th:href="@{/admin/user/all}">
+        Users List
+    </a>||
+    <a th:href="@{/admin/donation/all}">
+        Donations List
+    </a>||
+    <a th:href="@{/admin/category/all}">
+        Category List
+    </a>||
+    <a th:href="@{/admin/category/add}">
+        Add Category
+    </a>
+</nav>
+</body>
+</html>

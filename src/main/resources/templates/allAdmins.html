@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of institutions</title>
+</head>
+<body>
+<a th:href="@{/admin/details}">
+    Admin Home Page
+</a><br>
+<div th:each="admin :${adminsSet}">
+    <p th:text="${admin.username}"></p>
+    <p th:text="${admin.email}"></p>
+    <p th:text="${admin.enable}"></p>
+    <a th:href="@{/admin/editUser/{id}(id=${admin.id})}">
+        <button type="button">Edit</button>
+    </a>
+    <a th:href="@{/admin/remove/{id}(id=${admin.id})}">
+        <button type="button">Delete</button>
+    </a>
+</div>
+</body>
+</html>
